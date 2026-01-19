@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="MicrosoftAppStoreClone.UserControls.AppsViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MicrosoftAppStoreClone.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="1200"
+             Margin="15">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="0.02*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button Width="40"
+                Height="40"
+                Margin="4"
+                Grid.Column="0"
+                VerticalAlignment="Center"
+                Name="ScrollLeftButton"
+                Click="ScrollLeftButton_Click"
+                Content="&lt;"/>
+
+        <ScrollViewer
+            Name="AppsScrollView"
+            Grid.Column="1"
+            VerticalScrollBarVisibility="Hidden"
+            HorizontalScrollBarVisibility="Hidden"
+            PreviewMouseWheel="AppsScrollView_PreviewMouseWheel">
+            <ScrollViewer.Resources>
+                <DataTemplate x:Key="AppListTemplate">
+                    <StackPanel>
+
+                    </StackPanel>
+                </DataTemplate>
+            </ScrollViewer.Resources>
+            <ItemsControl x:Name="AppsList"
+                          ItemTemplate="{StaticResource AppListTemplate}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <Button Width="40"
+                Height="40"
+                Margin="4"
+                Grid.Column="2"
+                VerticalAlignment="Center"
+                Name="ScrollRightButton"
+                Click="ScrollRightButton_Click"
+                Content="&gt;"/>
+
+    </Grid>
+</UserControl>
