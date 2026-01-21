@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="MicrosoftAppStoreClone.UserControls.AppDetailsTabContent.Related"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MicrosoftAppStoreClone.UserControls.AppDetailsTabContent"
+             xmlns:uc="clr-namespace:MicrosoftAppStoreClone.UserControls"
+             mc:Ignorable="d" 
+             x:Name="RelatedUserControl"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel Orientation="Vertical"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Visibility="Visible"
+                Background="#2e2e2e"
+                Width="{Binding ElementName=RelatedUserControl, Path=ActualWidth}">
+        <Label FontSize="30"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               Content="People also like"/>
+        <uc:AppsViewer x:Name="AppsViewerInsideRelatedTab_PeopleAlsoLike"></uc:AppsViewer>
+        
+        <Label FontSize="30"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               Content="Top Free Games"/>
+        <uc:AppsViewer x:Name="AppsViewerInsideRelatedTab_TopFreeGames"></uc:AppsViewer>
+
+        <Label FontSize="30"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               Content="Top Paid Games"/>
+        <uc:AppsViewer x:Name="AppsViewerInsideRelatedTab_TopPaidGames"></uc:AppsViewer>
+
+        <Label FontSize="30"
+               Foreground="White"
+               HorizontalAlignment="Left"
+               Content="Best Rated Games"/>
+        <uc:AppsViewer x:Name="AppsViewerInsideRelatedTab_BestRatedGames"></uc:AppsViewer>
+
+        <Label FontSize="30"
+                Foreground="White"
+                HorizontalAlignment="Left"
+                Content="Best Selling Games"/>
+        <uc:AppsViewer x:Name="AppsViewerInsideRelatedTab_BestSellingGames"></uc:AppsViewer>
+
+    </StackPanel>
+</UserControl>

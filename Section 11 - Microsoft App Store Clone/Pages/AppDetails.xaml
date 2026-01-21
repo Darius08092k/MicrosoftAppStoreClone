@@ -36,15 +36,15 @@
                     </TabItem>
 
                     <TabItem Header="System Requirements">
-
+                        <ucAppDetails:SystemRequirements x:Name="SystemRequirementsTabContentUC"></ucAppDetails:SystemRequirements>
                     </TabItem>
 
                     <TabItem Header="Reviews">
-
+                        <ucAppDetails:Reviews x:Name="ReviewsTabContentUC"></ucAppDetails:Reviews>
                     </TabItem>
 
                     <TabItem Header="Related">
-
+                        <ucAppDetails:Related x:Name="RelatedTabContentUC"></ucAppDetails:Related>
                     </TabItem>
                 </TabControl>
                 

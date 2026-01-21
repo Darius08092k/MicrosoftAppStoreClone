@@ -34,7 +34,16 @@ namespace MicrosoftAppStoreClone
         {
             AppDetails myAppDetails = new AppDetails(sender);
             myAppDetails.BackButtonclicked += MyAppDetails_BackButtonclicked;
-            myAppDetails.AppClicked += MainWindowContentPage_AppClicked; // This line expects a parameterless method
+            myAppDetails.AppClicked += MainWindowContentPage_AppClicked;
+
+            // Related Tab
+            myAppDetails.AppClicked_PeopleAlsoLike += MainWindowContentPage_AppClicked;
+            myAppDetails.AppClicked_TopFreeGames += MainWindowContentPage_AppClicked;
+            myAppDetails.AppClicked_TopPaidGames += MainWindowContentPage_AppClicked;
+            myAppDetails.AppClicked_BestRatedGames += MainWindowContentPage_AppClicked;
+            myAppDetails.AppClicked_BestSellingGames += MainWindowContentPage_AppClicked;
+
+
             MainFrame.Content = myAppDetails;
         }
 
