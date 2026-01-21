@@ -34,6 +34,7 @@ namespace MicrosoftAppStoreClone
         {
             AppDetails myAppDetails = new AppDetails(sender);
             myAppDetails.BackButtonclicked += MyAppDetails_BackButtonclicked;
+            myAppDetails.AppClicked += MainWindowContentPage_AppClicked; // This line expects a parameterless method
             MainFrame.Content = myAppDetails;
         }
 
