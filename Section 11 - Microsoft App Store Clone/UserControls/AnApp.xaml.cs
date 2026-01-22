@@ -73,6 +73,15 @@ namespace MicrosoftAppStoreClone.UserControls
 
         }
 
+        public AnApp(string inAppName, ImageSource inImageSource)
+        {
+            InitializeComponent();
+            ProductImage.Source = inImageSource;
+            AppNameText.Text = inAppName;
+            AppName = inAppName;
+            AppImageSource = inImageSource;
+        }
+
         private void ProductImage_MouseUp(object sender, MouseButtonEventArgs e)
         {
             AppClicked(this, e);

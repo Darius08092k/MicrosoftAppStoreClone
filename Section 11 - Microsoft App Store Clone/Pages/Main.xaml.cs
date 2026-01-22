@@ -41,6 +41,8 @@ namespace MicrosoftAppStoreClone.Pages
             MostPopularViewer.AppClicked += AnAppClicked;
             TopFreeAppsViewer.AppClicked += AnAppClicked;
             TopFreeGamesViewer.AppClicked += AnAppClicked;
+
+            ProductivityTopAppsControl.AppClicked += AnAppClicked;
         }
 
         private void MainScrollViewer_Loaded(object sender, RoutedEventArgs e)
