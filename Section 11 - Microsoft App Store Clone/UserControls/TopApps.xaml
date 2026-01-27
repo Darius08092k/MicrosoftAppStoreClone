@@ -20,6 +20,7 @@
             <RowDefinition Height="0.33*"/>
         </Grid.RowDefinitions>
 
+
         <Image Grid.Row="0" 
                Grid.Column="0" 
                Grid.RowSpan="2"
@@ -60,6 +61,25 @@
                 Source="/Images/TopAppIcons/84-chat message.png" 
                 Margin="2,2,2,2"
                 MouseUp="Image_MouseUp"/>
+
+        <Image Grid.Row="2"
+            Grid.Column="2"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Stretch="Fill"
+            Source="/Images/TopAppIcons/85-Night castle.png"
+            Margin="2,2,2,2"
+            MouseUp="Image_MouseUp"/>
+
+        <Canvas Grid.Column="0"
+            Grid.Row="0"
+            Grid.ColumnSpan="4"
+            Grid.RowSpan="3"
+            Opacity="0.4"
+            Background="#2e2e2e"
+            IsHitTestVisible="False">
+        </Canvas>
+
         <Grid Name="BottomGrid"
               Grid.Row="2"
               Grid.Column="0"
@@ -102,15 +122,47 @@
                     Margin="2,2,2,2"
                     Click="TopGamesButton_Click">Top Games</Button>
         </Grid>
-        
-        <Image Grid.Row="2"
-               Grid.Column="2"
-               VerticalAlignment="Stretch"
-               HorizontalAlignment="Stretch"
-               Stretch="Fill"
-               Source="/Images/TopAppIcons/85-Night castle.png"
-               Margin="2,2,2,2"
-               MouseDown="Image_MouseUp"/>
-        
+
+        <Label Name="TropicalLabel"
+                Grid.Column="0" Grid.Row="0"
+                Grid.ColumnSpan="2" Grid.RowSpan="2"
+                FontSize="25" FontWeight="DemiBold"
+                Foreground="White"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                >Tropical</Label>
+
+        <Label Name="CircusLabel"
+                Grid.Column="3" Grid.Row="0"
+                FontSize="16" FontWeight="DemiBold"
+                Foreground="White"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                >Circus</Label>
+
+        <Label Name="RaceExtremeLabel"
+                Grid.Column="3" Grid.Row="1"
+                FontSize="16" FontWeight="DemiBold"
+                Foreground="White"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                >Race Extreme</Label>
+
+        <Label Name="ChatMessageLabel"
+                Grid.Column="3" Grid.Row="2"
+                FontSize="16" FontWeight="DemiBold"
+                Foreground="White"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                >Chat Message</Label>
+
+        <Label Name="NightCastleLabel"
+                Grid.Column="2" Grid.Row="2"
+                FontSize="16" FontWeight="DemiBold"
+                Foreground="White"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                >Night Castle</Label>
+
     </Grid>
 </UserControl>

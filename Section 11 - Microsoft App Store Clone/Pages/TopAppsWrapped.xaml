@@ -1,0 +1,53 @@
+﻿<Page x:Class="MicrosoftAppStoreClone.Pages.TopAppsWrapped"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MicrosoftAppStoreClone.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Name="TopAppsWrappedPage"
+      Title="TopAppsWrapped">
+
+    <Grid x:Name="TopAppsWrappedPageMainGrid"
+          Width="{Binding ElementName=TopAppsWrappedPage, Path=ActualWidth}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="35"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Button x:Name="BackButton"
+                Grid.Column="0" Grid.Row="0"
+                Width="35" Height="35"
+                Content="&lt;"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Click="BackButton_Click"/>
+
+        <Label Grid.Row="0"
+               Grid.Column="1"
+               HorizontalAlignment="Left"
+               Margin="10,10,10,10"
+               Content="Best selling apps"
+               FontSize="40"></Label>
+        <ScrollViewer x:Name="TopAppsWrappedPageMainSV"
+                      Width="{Binding ElementName=TopAppsWrappedPageMainGrid, Path=ActualWidth}"
+                      Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                      Margin="10"
+                      HorizontalScrollBarVisibility="Hidden"
+                      VerticalScrollBarVisibility="Hidden"
+                      ScrollChanged="TopAppsWrappedPageMainSV_ScrollChanged">
+            <WrapPanel Name="TopAppsWrappedPageMainWrapPanel"
+                       Width="{Binding ElementName=TopAppsWrappedPageMainSV, Path=ActualWidth}">
+                
+            </WrapPanel>
+            
+        </ScrollViewer>
+
+    </Grid>
+</Page>

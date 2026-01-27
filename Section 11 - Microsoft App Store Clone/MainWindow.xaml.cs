@@ -23,17 +23,29 @@ namespace MicrosoftAppStoreClone
     public partial class MainWindow : Window
     {
         private Main MainWindowContentPage;
+        private TopAppsWrapped topAppsWrapped;
         public MainWindow()
         {
             InitializeComponent();
             MainWindowContentPage = new Main();
             MainWindowContentPage.AppClicked += MainWindowContentPage_AppClicked;
+            MainWindowContentPage.TopAppButtonClicked += MainWindowContentPage_TopAppClicked;
+
+            topAppsWrapped = new TopAppsWrapped();
+            topAppsWrapped.AnAppClicked += MainWindowContentPage_AppClicked;
+
+            topAppsWrapped.BackButtonclicked += BackButtonClicked;
+        }
+
+        private void MainWindowContentPage_TopAppClicked(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = topAppsWrapped;
         }
 
         private void MainWindowContentPage_AppClicked(AnApp sender, RoutedEventArgs e)
         {
             AppDetails myAppDetails = new AppDetails(sender);
-            myAppDetails.BackButtonclicked += MyAppDetails_BackButtonclicked;
+            myAppDetails.BackButtonclicked += BackButtonClicked;
             myAppDetails.AppClicked += MainWindowContentPage_AppClicked;
 
             // Related Tab
@@ -47,7 +59,7 @@ namespace MicrosoftAppStoreClone
             MainFrame.Content = myAppDetails;
         }
 
-        private void MyAppDetails_BackButtonclicked(object sender, RoutedEventArgs e)
+        private void BackButtonClicked(object sender, RoutedEventArgs e)
         {
             if (MainFrame.NavigationService.CanGoBack)
             {

@@ -25,6 +25,9 @@ namespace MicrosoftAppStoreClone.Pages
         public delegate void OnAppClicked(AnApp sender, RoutedEventArgs e);
         public event OnAppClicked AppClicked;
 
+        public delegate void OnTopAppClicked(object sender, RoutedEventArgs e);
+        public event OnTopAppClicked TopAppButtonClicked;
+
         public Main()
         {
             InitializeComponent();
@@ -42,7 +45,16 @@ namespace MicrosoftAppStoreClone.Pages
             TopFreeAppsViewer.AppClicked += AnAppClicked;
             TopFreeGamesViewer.AppClicked += AnAppClicked;
 
+            TopAppsControl.AppClicked += AnAppClicked;
+            TopAppsControl.TopAppButtonClicked += TopApps_TopAppButtonClicked;
+
+
             ProductivityTopAppsControl.AppClicked += AnAppClicked;
+        }
+
+        private void TopApps_TopAppButtonClicked(object sender, RoutedEventArgs e)
+        {
+            TopAppButtonClicked(sender, e);
         }
 
         private void MainScrollViewer_Loaded(object sender, RoutedEventArgs e)
