@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MicrosoftAppStoreClone"
         xmlns:uc="clr-namespace:MicrosoftAppStoreClone.UserControls"
+        xmlns:hamburgerMenuViews="clr-namespace:MicrosoftAppStoreClone.UserControls.HamburgerMenuViews"
         mc:Ignorable="d"
         Title="MainWindow" 
         Name="MainWindowMetro"
@@ -12,6 +13,8 @@
         WindowStartupLocation="CenterScreen"
         Top="0">
     <Grid>
+
+        
         <Frame Name="MainFrame"
                Loaded="MainFrame_Loaded"
                NavigationUIVisibility="Hidden"

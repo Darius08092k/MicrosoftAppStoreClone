@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MicrosoftAppStoreClone.Pages"
       xmlns:uc="clr-namespace:MicrosoftAppStoreClone.UserControls"
+      xmlns:ham="clr-namespace:MicrosoftAppStoreClone.UserControls.HamburgerMenuViews"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
@@ -214,5 +215,29 @@
             
         </uc:HeaderRightButtons>
 
+        <!-- Overlay for hamburger menu (initially hidden) -->
+        <Grid Name="HamburgerOverlay"
+              Grid.Row="0" Grid.Column="0"
+              Grid.RowSpan="2" Grid.ColumnSpan="4"
+              Visibility="Collapsed"
+              Background="#80000000"
+              MouseDown="HamburgerOverlay_MouseDown"
+              >
+            <Border Name="HamburgerBorder"
+                    Background="White"
+                    Width="760"
+                    VerticalAlignment="Top"
+                    Margin="20,48,20,0"
+                    CornerRadius="4"
+                    MaxHeight="500"
+                    >
+                <ScrollViewer HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <ham:AllOwned x:Name="AllOwnedView"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+        </Grid>
     </Grid>
 </Page>

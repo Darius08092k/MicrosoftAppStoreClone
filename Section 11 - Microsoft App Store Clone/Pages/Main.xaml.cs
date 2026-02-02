@@ -28,6 +28,9 @@ namespace MicrosoftAppStoreClone.Pages
         public delegate void OnTopAppClicked(object sender, RoutedEventArgs e);
         public event OnTopAppClicked TopAppButtonClicked;
 
+        public delegate void OnDownloadsAndUpdatesClicked(object sender, RoutedEventArgs e);
+        public event OnDownloadsAndUpdatesClicked DownloadsAndUpdatesButtonClicked;
+
         public Main()
         {
             InitializeComponent();
@@ -48,8 +51,40 @@ namespace MicrosoftAppStoreClone.Pages
             TopAppsControl.AppClicked += AnAppClicked;
             TopAppsControl.TopAppButtonClicked += TopApps_TopAppButtonClicked;
 
-
             ProductivityTopAppsControl.AppClicked += AnAppClicked;
+
+            RightHeaderButtons.HeaderRightButtonsDownloadButtonClicked += RightHeaderButtons_DownloadClicked;
+
+            // Subscribe to app list changes to dynamically adjust MaxHeight
+            AllOwnedView.HamAppsList.AppListChanged += HamAppsList_AppListChanged;
+        }
+
+        private void RightHeaderButtons_DownloadClicked(object sender, RoutedEventArgs e)
+        {
+            HamburgerOverlay.Visibility = Visibility.Visible;
+            DownloadsAndUpdatesButtonClicked?.Invoke(sender, e);
+        }
+
+        private void HamburgerOverlay_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.Source == HamburgerOverlay)
+            {
+                HamburgerOverlay.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void HamAppsList_AppListChanged(object sender, EventArgs e)
+        {
+            // Get the hamburger border element
+            Border hamburgerBorder = (Border)HamburgerOverlay.FindName("Border");
+            if (hamburgerBorder != null)
+            {
+                int appCount = AllOwnedView.HamAppsList.MainStackPanel.Children.Count;
+                double calculatedHeight = (appCount * 64) + 50; // 50 for header padding
+
+                // Cap at 500 pixels max
+                hamburgerBorder.MaxHeight = Math.Min(calculatedHeight, 500);
+            }
         }
 
         private void TopApps_TopAppButtonClicked(object sender, RoutedEventArgs e)

@@ -37,7 +37,7 @@ namespace MicrosoftAppStoreClone.UserControls
 
         private void MouseDown_OutsideOfHeaderRightButtons()
         {
-            if(!SearchTextBox.IsMouseOver)
+            if (!SearchTextBox.IsMouseOver)
             {
                 SearchButton.Visibility = Visibility.Visible;
                 SearchTextBox.Visibility = Visibility.Collapsed;
@@ -46,12 +46,12 @@ namespace MicrosoftAppStoreClone.UserControls
 
         private void DownloadButton_Click(object sender, RoutedEventArgs e)
         {
-            HeaderRightButtonsDownloadButtonClicked(sender, e); 
+            HeaderRightButtonsDownloadButtonClicked?.Invoke(sender, e);
         }
 
         private void DownloadsAndUpdated_Click(object sender, RoutedEventArgs e)
         {
-            HeaderRightButtonsDownloadButtonClicked(sender, e);
+            HeaderRightButtonsDownloadButtonClicked?.Invoke(sender, e);
         }
     }
 }
