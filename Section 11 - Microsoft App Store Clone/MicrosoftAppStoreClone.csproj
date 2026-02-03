@@ -143,6 +143,9 @@
     <Compile Include="UserControls\TopApps.xaml.cs">
       <DependentUpon>TopApps.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Window\AccentStyleWindow.xaml.cs">
+      <DependentUpon>AccentStyleWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -230,6 +233,10 @@
     <Page Include="UserControls\TopApps.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\AccentStyleWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
