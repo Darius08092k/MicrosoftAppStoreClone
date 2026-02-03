@@ -25,15 +25,18 @@ namespace MicrosoftAppStoreClone
     {
         private Main MainWindowContentPage;
         private TopAppsWrapped topAppsWrapped;
+        private DownloadsAndUpdates downloadsAndUpdatesPage;
         public MainWindow()
         {
             InitializeComponent();
             MainWindowContentPage = new Main();
             MainWindowContentPage.AppClicked += MainWindowContentPage_AppClicked;
             MainWindowContentPage.TopAppButtonClicked += MainWindowContentPage_TopAppClicked;
+            MainWindowContentPage.DownloadsAndUpdatesButtonClicked += MainWindowContentPage_DownloadsAndUpdatesClicked;
 
             topAppsWrapped = new TopAppsWrapped();
             topAppsWrapped.AnAppClicked += MainWindowContentPage_AppClicked;
+
 
             topAppsWrapped.BackButtonclicked += BackButtonClicked;
         }
@@ -41,6 +44,13 @@ namespace MicrosoftAppStoreClone
         private void MainWindowContentPage_TopAppClicked(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = topAppsWrapped;
+        }
+
+        private void MainWindowContentPage_DownloadsAndUpdatesClicked(object sender, RoutedEventArgs e)
+        {
+            DownloadsAndUpdates downloadsPage = new DownloadsAndUpdates();
+            downloadsPage.BackButtonclicked += BackButtonClicked;
+            MainFrame.Content = downloadsPage;
         }
 
         private void MainWindowContentPage_AppClicked(AnApp sender, RoutedEventArgs e)
@@ -62,10 +72,42 @@ namespace MicrosoftAppStoreClone
 
         private void BackButtonClicked(object sender, RoutedEventArgs e)
         {
+            // Reset scroll position if current content is AppDetails
+            if (MainFrame.Content is AppDetails appDetails)
+            {
+                var scrollViewer = FindVisualChild<ScrollViewer>(appDetails);
+                if (scrollViewer != null)
+                {
+                    scrollViewer.ScrollToTop();
+                }
+            }
+
             if (MainFrame.NavigationService.CanGoBack)
             {
                 MainFrame.NavigationService.GoBack();
             }
+        }
+
+        /// <summary>
+        /// Helper method to find a child element of a specific type in the visual tree
+        /// </summary>
+        private T FindVisualChild<T>(DependencyObject obj) where T : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                if (child != null && child is T)
+                {
+                    return (T)child;
+                }
+                else
+                {
+                    T childOfChild = FindVisualChild<T>(child);
+                    if (childOfChild != null)
+                        return childOfChild;
+                }
+            }
+            return null;
         }
 
         private void MainFrame_Loaded(object sender, RoutedEventArgs e)

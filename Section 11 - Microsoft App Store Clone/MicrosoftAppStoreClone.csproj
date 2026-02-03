@@ -89,6 +89,9 @@
     <Compile Include="Pages\AppDetails.xaml.cs">
       <DependentUpon>AppDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\DownloadsAndUpdates.xaml.cs">
+      <DependentUpon>DownloadsAndUpdates.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Pages\AppDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DownloadsAndUpdates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

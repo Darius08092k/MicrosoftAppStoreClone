@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MicrosoftAppStoreClone.UserControls"
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="1200"
              Margin="15">
@@ -19,6 +20,21 @@
             <ColumnDefinition Width="0.02*"/>
         </Grid.ColumnDefinitions>
 
+        <Grid.Resources>
+            <Style x:Key="AccentCircleButtonStyle"
+                   BasedOn="{StaticResource MahApps.Styles.Button.Circle}"
+                   TargetType="{x:Type ButtonBase}">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource MahApps.Brushes.Accent}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="BorderBrush" Value="{DynamicResource MahApps.Brushes.Accent}"/>
+                    </Trigger>
+                </Style.Triggers>
+
+            </Style>
+        </Grid.Resources>
+
         <Button Width="40"
                 Height="40"
                 Margin="4"
@@ -26,7 +42,8 @@
                 VerticalAlignment="Center"
                 Name="ScrollLeftButton"
                 Click="ScrollLeftButton_Click"
-                Content="&lt;"/>
+                Content="&lt;"
+                Style="{StaticResource AccentCircleButtonStyle}"/>
 
         <ScrollViewer
             Name="AppsScrollView"
@@ -58,7 +75,8 @@
                 VerticalAlignment="Center"
                 Name="ScrollRightButton"
                 Click="ScrollRightButton_Click"
-                Content="&gt;"/>
+                Content="&gt;"
+                Style="{StaticResource AccentCircleButtonStyle}"/>
 
     </Grid>
 </UserControl>

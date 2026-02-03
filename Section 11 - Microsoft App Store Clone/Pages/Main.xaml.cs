@@ -61,7 +61,6 @@ namespace MicrosoftAppStoreClone.Pages
 
         private void RightHeaderButtons_DownloadClicked(object sender, RoutedEventArgs e)
         {
-            HamburgerOverlay.Visibility = Visibility.Visible;
             DownloadsAndUpdatesButtonClicked?.Invoke(sender, e);
         }
 

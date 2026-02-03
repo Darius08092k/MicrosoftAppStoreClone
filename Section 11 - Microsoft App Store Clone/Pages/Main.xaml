@@ -6,6 +6,7 @@
       xmlns:local="clr-namespace:MicrosoftAppStoreClone.Pages"
       xmlns:uc="clr-namespace:MicrosoftAppStoreClone.UserControls"
       xmlns:ham="clr-namespace:MicrosoftAppStoreClone.UserControls.HamburgerMenuViews"
+      xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
@@ -21,7 +22,7 @@
             <ColumnDefinition Width="0.4*"/>
             <ColumnDefinition Width="35"/>
         </Grid.ColumnDefinitions>
-        <TabControl
+        <mah:MetroAnimatedSingleRowTabControl
             Name="MainTabControl"
             Visibility="Visible"
             Grid.Row="0" Grid.Column="1"
@@ -208,7 +209,7 @@
                 </ScrollViewer>
             </TabItem>
 
-        </TabControl>
+        </mah:MetroAnimatedSingleRowTabControl>
         <uc:HeaderRightButtons x:Name="RightHeaderButtons"
                                Grid.Column="2" Grid.ColumnSpan="1"
                                >
